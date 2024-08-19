@@ -201,7 +201,6 @@ if uploaded_file is not None:
         st.session_state.highlighted_questions = st.session_state.incorrect_questions
 
 
-
 # 成績履歴表示
 st.write("回答履歴:")
 history_df = pd.DataFrame(st.session_state.results_history)  # DataFrame を作成
@@ -216,7 +215,7 @@ user_name = st.text_input("名前を入力してください:")
 
 # ダウンロードボタン（ユーザー名と日時をファイル名に含める）
 if user_name:  # ユーザー名が入力されている場合
-    file_name = f"{user_name}_回答履歴_{now}_.csv"
+    file_name = f"{user_name}_回答履歴_{now}.csv"
 else:  # ユーザー名が入力されていない場合
     file_name = f"回答履歴_{now}.csv"
 
@@ -227,7 +226,6 @@ st.download_button(
     file_name=file_name,
     mime='text/csv'
 )
-
 # 新しい問題が選択された場合、回答回数をリセット
 if (st.session_state.selected_years != st.session_state.previous_selected_years or
         st.session_state.selected_categories != st.session_state.previous_selected_categories):
